@@ -1,0 +1,27 @@
+{
+  "m": 24,
+  "ef_construction": 384,
+  "ef_search": 768,
+  "secondary_indices": ["boardId", "kind", "externalId"],
+  "mcp": true,
+  "embedding_model": "text-embedding-3-small",
+  "graphvis_node_label": "kind",
+  "database": {
+    "name": "excalidraw_rag",
+    "persistData": true,
+    "dataPath": "./data",
+    "maxSize": "10GB"
+  },
+  "server": {
+    "host": "0.0.0.0",
+    "port": 6969,
+    "enableCors": true
+  },
+  "vector_config": {
+    "TextEmbedding": { "dimensions": 1536, "metric": "cosine" },
+    "LayoutEmbedding": { "dimensions": 4, "metric": "cosine" }
+  },
+  "graph_config": {
+    "node_label": "kind"
+  }
+}

@@ -1,0 +1,12 @@
+[project]
+name = "helix"
+queries = "./db/"
+
+[local.helix]
+build_mode = "debug"
+
+[local.dev]
+port = 6969
+build_mode = "release"
+
+[cloud]

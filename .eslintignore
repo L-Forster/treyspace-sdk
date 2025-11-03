@@ -1,0 +1,23 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Build outputs
+dist
+build
+coverage
+*.d.ts
+
+# Data and logs
+data/
+*.log
+
+# SDK node_modules (has its own config)
+sdk/node_modules
+
+# Test fixtures
+**/__fixtures__
+**/__mocks__
+
+# Generated files
+*.min.js

@@ -1,0 +1,91 @@
+{
+  "name": "treyspace-sdk",
+  "version": "1.0.0",
+  "description": "RAG backend SDK for canvas-based knowledge graphs with Helix DB integration.",
+  "keywords": [
+    "rag",
+    "canvas",
+    "knowledge-graph",
+    "helix-db",
+    "llm",
+    "openai",
+    "semantic-clustering",
+    "graph-database",
+    "excalidraw",
+    "diagram-analysis"
+  ],
+  "license": "MIT",
+  "author": "L-Forster",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/L-Forster/treyspace-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/L-Forster/treyspace-sdk/issues"
+  },
+  "homepage": "https://github.com/L-Forster/treyspace-sdk#readme",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "files": [
+    "dist",
+    "src",
+    "sdk",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "main": "sdk/sdk.js",
+  "exports": {
+    ".": "./sdk/sdk.js",
+    "./server": "./src/index.js"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "clean": "rm -rf dist",
+    "dev": "tsx watch src/index.js",
+    "start": "node src/index.js",
+    "start:prod": "node src/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint . --ext .js,.ts,.mjs --max-warnings 10",
+    "lint:fix": "eslint . --ext .js,.ts,.mjs --fix",
+    "format": "prettier --write \"**/*.{js,ts,mjs,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,mjs,json,md,yml,yaml}\"",
+    "smoke": "npx tsx scripts/smoke-ai-proxy.mjs",
+    "test": "npm run typecheck && npx tsx tests/runFullPipeline.spec.mjs",
+    "test:smoke": "npx tsx tests/sdkSmoke.spec.mjs",
+    "test:integration": "npx tsx tests/runFullPipeline.spec.mjs",
+    "validate": "npm run typecheck && npm run lint && npm run format:check",
+    "prepublishOnly": "npm run validate && npm test"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "pino": "^9.1.0",
+    "pino-http": "^9.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.24",
+    "@typescript-eslint/eslint-plugin": "7.18.0",
+    "@typescript-eslint/parser": "7.18.0",
+    "eslint": "8.57.1",
+    "eslint-config-prettier": "9.1.2",
+    "eslint-import-resolver-typescript": "3.10.1",
+    "eslint-plugin-import": "2.32.0",
+    "husky": "9.1.7",
+    "lint-staged": "15.5.2",
+    "pino-pretty": "^11.1.0",
+    "prettier": "3.6.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "5.5.4"
+  }
+}

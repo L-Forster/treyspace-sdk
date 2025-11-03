@@ -1,0 +1,175 @@
+# Treyspace SDK
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9%2B-blue.svg)](https://www.typescriptlang.org/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+An open-source RAG (Retrieval-Augmented Generation) SDK for canvas-based knowledge graphs. It ingests canvas data, mirrors it into Helix graph-vector database for semantic, relational, and spatial clustering, and provides LLM-powered analysis of the canvas.
+
+
+## Features
+
+- **Responses API** – Wrapper around OpenAI responses API with canvas-specific context handling
+- **Canvas AI engine** – SSE endpoints under `/api/ai/*` orchestrate the full RAG pipeline with graph-based retrieval
+- **Helix bridge** – `/api/clusters` and `/api/mcp-bridge` proxy the Helix graph database for semantic clustering
+- **SDK & Server** – Use as a library or run as a standalone server
+- **Development-focused** – No auth, rate limiting, or billing; easily adaptable to your needs
+
+## 📋 Table of Contents
+
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Architecture](#-architecture)
+- [Usage](#-usage)
+- [Documentation](#-documentation)
+- [Examples](#-examples)
+- [Environment Variables](#-environment-variables)
+- [Development](#-development)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js >= 18.0.0
+- npm >= 9.0.0
+- Helix DB instance
+- OpenAI API key
+
+### Installation
+
+1. **Clone and install**
+
+   ```bash
+   npm install
+   ```
+
+2. **Copy the default config**
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   - Only set `OPENAI_API_KEY` to run locally. Helix URLs already point to `http://localhost:3001` (RAG) and `http://localhost:6969` (DB).
+   - Follow the [Helix install guide](https://docs.helix-db.com/documentation/getting-started/installation) if you haven’t deployed Helix yet.
+
+3. **Start the SDK façade**
+
+   ```bash
+   cd sdk
+   npm install
+   node server.js
+   ```
+
+   Leave this process running (or use your favourite watcher).
+
+4. **Start the backend (new terminal)**
+
+   ```bash
+   cd ..
+   node src/index.js
+   ```
+
+5. **Verify the pipeline**
+   ```bash
+   npm run smoke              # health check (requires servers from steps 3 & 4)
+   npm run test:smoke         # requires OPENAI_API_KEY
+   npm run test:integration   # full pipeline (OPENAI_API_KEY required)
+   ```
+   The `test:*` commands start (and stop) both the SDK façade and the AI proxy automatically and skip if `OPENAI_API_KEY` is not set.
+
+## Project Structure
+
+```
+├── src/                # Backend server and AI engine
+├── sdk/               # Helix SDK integration layer
+├── docs/               # API + configuration docs
+├── examples/           # Client scripts for testing
+├── scripts/            # Smoke check utility
+├── tests/              # End-to-end tests
+└── .github/            # CI workflow
+```
+
+## Documentation
+
+- [API Reference](./docs/API.md) – endpoints and payloads
+- [Configuration & Deployment](./docs/CONFIGURATION.md) – Environment variables, Docker, and Helix setup
+- [Pipeline Guide](./docs/EXCALDRAW_PIPELINE.md) – Step-by-step canvas processing workflow
+
+## Examples
+
+- `examples/responses.mjs` – POST a one-off prompt to `/v1/responses`
+- `examples/stream-ai-engine.mjs` – Stream `/api/ai/engine` SSE output for a board
+
+```bash
+node examples/responses.mjs "Summarise this Excalidraw canvas"
+# or load a full request
+node examples/responses.mjs --payload ./payload.json
+
+AI_BACKEND_BOARD_ID=board-123 node examples/stream-ai-engine.mjs
+```
+
+Set `AI_BACKEND_URL` to override the backend URL for proxied deployments.
+
+### SDK Usage (as a library)
+
+```javascript
+import { createHelixRagSDK, executeFullPipeline } from 'treyspace-sdk';
+
+// Create SDK instance
+const sdk = createHelixRagSDK();
+
+// Sync canvas data
+await sdk.syncCanvas({
+  boardId: 'my-board',
+  excalidrawData: { elements: [...] }
+});
+
+// Get clusters
+const clusters = await sdk.refreshClusters({ boardId: 'my-board' });
+
+// Or run full pipeline
+const result = await executeFullPipeline({
+  boardId: 'my-board',
+  userMessage: 'Explain this diagram',
+  elements: canvasElements
+});
+
+console.log(result.text);
+```
+
+## 🌍 Environment Variables
+
+| Variable                                    | Description                             | Default                                       |
+| ------------------------------------------- | --------------------------------------- | --------------------------------------------- |
+| `NODE_ENV`                                  | `development`, `production`, or `test`. | `development`                                 |
+| `PORT` / `HOST`                             | HTTP binding for the backend.           | `8787` / `0.0.0.0`                            |
+| `LOG_LEVEL`                                 | Pino log level.                         | `info`                                        |
+| `DEBUG` / `TREYSPACE_DEBUG`                 | Set to `1` to enable verbose logging.   | `0`                                           |
+| `ALLOWED_ORIGINS`                           | Comma-separated CORS allow-list.        | `http://localhost:3000,http://localhost:5173` |
+| `AI_BACKEND_URL` / `AI_BACKEND_PUBLIC_BASE` | Optional overrides for outbound URLs.   | –                                             |
+| `OPENAI_API_KEY` (+ `OPENAI_DEFAULT_MODEL`) | Enables OpenAI routes.                  | – / `gpt-5-mini`                              |
+| `HELIX_RAG_URL`                             | Base URL for the SDK façade.            | `http://localhost:3001`                       |
+| `HELIX_INTERNAL_ORIGIN`                     | Origin header forwarded to the façade.  | `http://localhost:3000`                       |
+
+## HTTP Surface
+
+- `GET /healthz`
+- `POST /v1/responses`
+- `POST /api/ai/engine`
+- `POST /api/clusters`
+- `POST /api/mcp-bridge`
+
+## Testing & QA
+
+```bash
+npm run smoke  # requires server running in another shell
+npx tsx tests/sdkSmoke.spec.mjs
+npx tsx tests/runFullPipeline.spec.mjs
+```
+
+## License
+
+Released under the [MIT License](./LICENSE).

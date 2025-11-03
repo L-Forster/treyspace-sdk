@@ -1,0 +1,45 @@
+{
+  "boardId": "example-board",
+  "userMessage": "What components are in this diagram?",
+  "elements": [
+    {
+      "id": "box-1",
+      "type": "rectangle",
+      "x": 100,
+      "y": 100,
+      "width": 150,
+      "height": 80,
+      "text": "Frontend App"
+    },
+    {
+      "id": "box-2",
+      "type": "rectangle",
+      "x": 350,
+      "y": 100,
+      "width": 150,
+      "height": 80,
+      "text": "Backend API"
+    },
+    {
+      "id": "box-3",
+      "type": "rectangle",
+      "x": 350,
+      "y": 250,
+      "width": 150,
+      "height": 80,
+      "text": "Database"
+    },
+    {
+      "id": "arrow-1",
+      "type": "arrow",
+      "startBinding": { "elementId": "box-1" },
+      "endBinding": { "elementId": "box-2" }
+    },
+    {
+      "id": "arrow-2",
+      "type": "arrow",
+      "startBinding": { "elementId": "box-2" },
+      "endBinding": { "elementId": "box-3" }
+    }
+  ]
+}
