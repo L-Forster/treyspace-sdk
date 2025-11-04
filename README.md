@@ -8,6 +8,13 @@
 
 An open-source RAG (Retrieval-Augmented Generation) SDK for canvas-based knowledge graphs. It ingests canvas data, mirrors it into Helix graph-vector database for semantic, relational, and spatial clustering, and provides LLM-powered analysis of the canvas.
 
+
+
+A hosted version of the Treyspace SDK with a full user interface and an Excalidraw canvas is available:
+**Try it here:** [https://app.treyspace.app/](https://app.treyspace.app/)
+
+
+
 <div align="center" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
 
   <div>
@@ -116,13 +123,6 @@ An open-source RAG (Retrieval-Augmented Generation) SDK for canvas-based knowled
 - [API Reference](./docs/API.md) – endpoints and payloads
 - [Configuration & Deployment](./docs/CONFIGURATION.md) – Environment variables, Docker, and Helix setup
 - [Pipeline Guide](./docs/EXCALDRAW_PIPELINE.md) – Step-by-step canvas processing workflow
-
-## Hosted Version
-
-A hosted version of the Treyspace SDK with a full user interface and an Excalidraw canvas is available for those who prefer not to run the services locally. You can draw or import canvases, sync them to Helix, and use the full RAG pipeline directly in your browser.
-
-- **Try it here:** [https://app.treyspace.app/](https://app.treyspace.app/)
-
 
 
 ## Examples
