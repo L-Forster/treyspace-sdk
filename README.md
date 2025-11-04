@@ -11,7 +11,7 @@ An open-source RAG (Retrieval-Augmented Generation) SDK for canvas-based knowled
 
 
 A hosted version of the Treyspace SDK with a full user interface and an Excalidraw canvas is available:
-**Try it here:** [https://app.treyspace.app/](https://app.treyspace.app/)
+**Try it here:** [https://treyspace.app/](https://treyspace.app/)
 
 
 
