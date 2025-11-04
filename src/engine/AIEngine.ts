@@ -83,7 +83,7 @@ export class BackendAIEngine {
    * @param messages - Array of chat messages
    * @returns Summarized history (max 300 chars) or empty string
    *
-   * Uses a small fast model (gpt-4o-mini) to condense chat history.
+   * Uses a small fast model (gpt-5-mini) to condense chat history.
    * Returns empty string on error to gracefully degrade.
    */
   async summarizeHistory(messages: Message[] | undefined): Promise<string> {

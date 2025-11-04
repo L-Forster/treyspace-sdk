@@ -4,8 +4,27 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9%2B-blue.svg)](https://www.typescriptlang.org/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![GitHub stars](https://img.shields.io/github/stars/L-Forster/treyspace-sdk?style=social)](https://github.com/L-Forster/treyspace-sdk/stargazers)
 
 An open-source RAG (Retrieval-Augmented Generation) SDK for canvas-based knowledge graphs. It ingests canvas data, mirrors it into Helix graph-vector database for semantic, relational, and spatial clustering, and provides LLM-powered analysis of the canvas.
+
+<div align="center" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+
+  <div>
+    <img src="docs/images/pipeline.PNG" alt="RAG Pipeline Overview" width="300"/>
+    <br/>
+    <em>Figure: End-to-end canvas-to-Helix-to-LLM pipeline</em>
+  </div>
+
+  <div>
+    <img src="docs/images/clustering.PNG" alt="Clustering Visualization" width="400"/>
+    <br/>
+    <em>Figure: Semantic, relational, and spatial cluster visualization</em>
+  </div>
+
+</div>
+
+
 
 
 ## Features
@@ -98,6 +117,14 @@ An open-source RAG (Retrieval-Augmented Generation) SDK for canvas-based knowled
 - [Configuration & Deployment](./docs/CONFIGURATION.md) – Environment variables, Docker, and Helix setup
 - [Pipeline Guide](./docs/EXCALDRAW_PIPELINE.md) – Step-by-step canvas processing workflow
 
+## Hosted Version
+
+A hosted version of the Treyspace SDK with a full user interface and an Excalidraw canvas is available for those who prefer not to run the services locally. You can draw or import canvases, sync them to Helix, and use the full RAG pipeline directly in your browser.
+
+- **Try it here:** [https://app.treyspace.app/](https://app.treyspace.app/)
+
+
+
 ## Examples
 
 - `examples/responses.mjs` – POST a one-off prompt to `/v1/responses`
@@ -162,6 +189,13 @@ console.log(result.text);
 - `POST /api/clusters`
 - `POST /api/mcp-bridge`
 
+
+## Community
+
+Connect with us on social media:
+
+- [Twitter&nbsp;@FlouisLF](https://x.com/FlouisLF)  
+- [Join our Discord community](https://discord.gg/pspKHtExSa)
 ## Testing & QA
 
 ```bash
@@ -173,3 +207,10 @@ npx tsx tests/runFullPipeline.spec.mjs
 ## License
 
 Released under the [MIT License](./LICENSE).
+
+
+## Contributing
+Contributions are welcome—fork this repo, create a feature branch, and submit a pull request. See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full guidelines.
+
+## Acknowledgements
+Special thanks to the Helix DB and Excalidraw teams, whose tools enable Treyspace’s graph and canvas features.
