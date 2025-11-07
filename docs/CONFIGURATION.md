@@ -24,3 +24,4 @@ Environment variables for Treyspace SDK.
 | `HELIX_ENDPOINT`   | Helix DB endpoint            | `http://localhost:6969` |
 | `LOCAL_EMBEDDINGS` | Use local embeddings (1=yes) | `0`                     |
 | `OPENAI_API_KEY`   | For OpenAI embeddings        | -                       |
+| `SDK_TAGS`         | Comma-separated runtime tags (e.g. `cli` for in-memory Helix) | – |

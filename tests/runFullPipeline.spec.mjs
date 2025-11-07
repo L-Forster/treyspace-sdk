@@ -1,7 +1,29 @@
 #!/usr/bin/env node
 import "dotenv/config";
 import { readFileSync } from "fs";
-import { executeFullPipeline } from "../sdk/sdk.js";
+
+const args = process.argv.slice(2);
+
+const tagSetFromEnv = () => {
+  const current = String(process.env.SDK_TAGS || "");
+  return current
+    .split(/[,\s]+/)
+    .map((t) => t.trim())
+    .filter(Boolean);
+};
+
+const enableCliHelix = args.includes("--disable_helix");
+
+if (enableCliHelix) {
+  const tags = new Set(tagSetFromEnv());
+  tags.add("cli");
+  const merged = Array.from(tags).join(",");
+  process.env.SDK_TAGS = merged;
+  globalThis.__TREYSPACE_RUNTIME_TAGS__ = merged;
+  console.log("⚙️  Helix in-memory mode enabled for full pipeline test");
+}
+
+const { executeFullPipeline } = await import("../sdk/sdk.js");
 
 const apiKey = process.env.OPENAI_API_KEY;
 if (!apiKey || !apiKey.trim()) {
@@ -13,7 +35,9 @@ if (!apiKey || !apiKey.trim()) {
 
 const data = JSON.parse(readFileSync("./examples/sample-board.json", "utf8"));
 
-console.log("Testing full pipeline...");
+console.log(
+  `Testing full pipeline${enableCliHelix ? " (in-memory Helix mode)" : ""}...`
+);
 
 const result = await executeFullPipeline({
   boardId: data.boardId,

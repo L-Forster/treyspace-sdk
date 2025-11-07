@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- CLI runtime tag (`cli`) that swaps the Helix client for an in-memory store, enabling SDK usage without a HelixDB instance.
+- `tests/runFullPipeline.spec.mjs --disable_helix` flag to run the full pipeline against the in-memory Helix driver.
+
 ### Removed
 
 - Dropped the legacy `/v1/chat/completions` OpenAI passthrough; `POST /v1/responses` remains the supported entry point.

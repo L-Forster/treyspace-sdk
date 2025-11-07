@@ -103,8 +103,22 @@ A hosted version of the Treyspace SDK with a full user interface and an Excalidr
    npm run smoke              # health check (requires servers from steps 3 & 4)
    npm run test:smoke         # requires OPENAI_API_KEY
    npm run test:integration   # full pipeline (OPENAI_API_KEY required)
+   npx tsx tests/runFullPipeline.spec.mjs --disable_helix   # full pipeline using in-memory Helix
    ```
    The `test:*` commands start (and stop) both the SDK façade and the AI proxy automatically and skip if `OPENAI_API_KEY` is not set.
+
+### In-memory CLI mode
+
+Running CLI tools without provisioning Helix? Enable the bundled in-memory graph implementation with the `cli` runtime tag:
+
+```bash
+# Start the façade with the in-memory Helix replacement
+node sdk/server.js --disable_helix
+
+# Or export the tag for scripts/tests
+export SDK_TAGS=cli
+npx tsx tests/sdkSmoke.spec.mjs
+```
 
 ## Project Structure
 
@@ -202,6 +216,8 @@ Connect with us on social media:
 npm run smoke  # requires server running in another shell
 npx tsx tests/sdkSmoke.spec.mjs
 npx tsx tests/runFullPipeline.spec.mjs
+# In-memory Helix mode
+npx tsx tests/runFullPipeline.spec.mjs --disable_helix
 ```
 
 ## License

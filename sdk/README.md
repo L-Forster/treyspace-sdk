@@ -57,6 +57,18 @@ npm run dev
 curl http://localhost:3001/health
 ```
 
+### CLI / in-memory mode
+
+Need to exercise the façade without a HelixDB instance? Enable the bundled in-memory graph store by adding the `cli` runtime tag. You can pass it via the command line or the `SDK_TAGS` environment variable.
+
+```bash
+# Start the façade without a Helix server
+node sdk/server.js --disable_helix
+
+# Or target scripts/tests
+SDK_TAGS=cli node tests/sdkSmoke.spec.mjs
+```
+
 Push a canvas delta:
 
 ```bash
