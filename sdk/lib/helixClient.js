@@ -41,8 +41,8 @@ const collectRuntimeTags = () => {
   const argv = Array.isArray(process?.argv) ? process.argv.slice(2) : [];
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
-    if (arg === "--disable_helix") {
-      tags.add("cli");
+    if (arg === "--enable_helix") {
+      tags.add("helix_enabled");
       continue;
     }
     if (arg === "--tag" || arg === "--tags") {
@@ -544,7 +544,7 @@ const createInMemoryHelix = () => {
 
   return {
     endpoint: "in-memory",
-    mode: "cli",
+    mode: "in-memory",
     async query(name, params) {
       return await callOp(name, params);
     },
@@ -629,8 +629,8 @@ export function createHelix(endpoint, options = {}) {
   const activeTags = new Set(runtimeTags);
   mergeTagValueInto(activeTags, options.tags);
 
-  const isCliMode = activeTags.has("cli");
-  const helix = isCliMode ? createInMemoryHelix() : new HelixDB(endpoint);
+  const isHelixEnabled = activeTags.has("helix_enabled");
+  const helix = isHelixEnabled ? new HelixDB(endpoint) : createInMemoryHelix();
   const TIMEOUT_MS = Number(process.env.HELIX_TIMEOUT_MS || 10000);
 
   const callHelix = async (queryName, params) => {
@@ -679,9 +679,9 @@ export function createHelix(endpoint, options = {}) {
     }
   };
 
-  if (isCliMode) {
+  if (!isHelixEnabled) {
     helix.tags = Array.from(activeTags);
-    callHelix.mode = "cli";
+    callHelix.mode = "in-memory";
   }
   callHelix.tags = Array.from(activeTags);
 
