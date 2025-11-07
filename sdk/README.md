@@ -1,7 +1,9 @@
 # Excalidraw ↔ Helix RAG SDK
 
-Open-source toolkit for mirroring Excalidraw canvases into [HelixDB](https://docs.helix-db.com/) and running retrieval‑augmented generation on top of that graph.  
+Open-source toolkit for mirroring Excalidraw canvases into a graph database and running retrieval‑augmented generation on top of that graph.
 Clone it, import the SDK (`createHelixRagSDK`) from your own code, and you can drive canvas ingestion + clustering without ever booting a server. An optional Express façade still ships for people who want an HTTP surface, but it now starts only when you run `node server.js`.
+
+**HelixDB is optional** – By default, the SDK uses an in-memory graph store. To use [HelixDB](https://docs.helix-db.com/) instead, start the server with `--enable_helix`.
 
 > **Status** – the commercial build at Treyspace contains auth, billing, rate limiting, real-time scenes, etc.  
 > This OSS snapshot keeps only the primitives you need to ingest canvases, analyse clusters and power RAG.
@@ -10,9 +12,9 @@ Clone it, import the SDK (`createHelixRagSDK`) from your own code, and you can d
 
 ## Capabilities
 
-- **Canvas ingestion** – normalises Excalidraw elements, keeps an on-disk cache, and upserts them into HelixDB (nodes + relational edges).
+- **Canvas ingestion** – normalises Excalidraw elements, keeps an on-disk cache, and stores them in a graph database (in-memory by default, or HelixDB with `--enable_helix`).
 - **Graph clustering** – recomputes semantic, spatial, and relational clusters so RAG agents can traverse the canvas meaningfully.
-- **MCP tool bridge** – optional helpers that expose the Helix graph to Model Context Protocol agents.
+- **MCP tool bridge** – optional helpers that expose the graph to Model Context Protocol agents.
 - **Embeddings** – swap between OpenAI embeddings or shipped on-device models (`@xenova/transformers`) by toggling env flags.
 - **Minimal auth surface** – the SDK is anonymous by default; pass `X-User-Id` or wrap the helpers with your own auth.
 
@@ -47,26 +49,23 @@ sdk/
 ```bash
 cd sdk
 npm install
-
-# point at your HelixDB instance (defaults shown)
-export HELIX_ENDPOINT=http://localhost:6969
 export PORT=3001
 
-npm run dev
+npm run dev  # starts with in-memory graph by default
 # Health probe
 curl http://localhost:3001/health
 ```
 
-### CLI / in-memory mode
+### Using HelixDB (optional)
 
-Need to exercise the façade without a HelixDB instance? Enable the bundled in-memory graph store by adding the `cli` runtime tag. You can pass it via the command line or the `SDK_TAGS` environment variable.
+Want to use the full HelixDB backend instead of in-memory mode? Start the server with the `--enable_helix` flag:
 
 ```bash
-# Start the façade without a Helix server
-node sdk/server.js --disable_helix
+# Point at your HelixDB instance
+export HELIX_ENDPOINT=http://localhost:6969
 
-# Or target scripts/tests
-SDK_TAGS=cli node tests/sdkSmoke.spec.mjs
+# Start the façade with HelixDB enabled
+node server.js --enable_helix
 ```
 
 Push a canvas delta:
@@ -139,13 +138,16 @@ Under the hood the SDK reuses the exact same handlers that power the optional HT
 
 | Variable           | Purpose                                            | Default                 |
 | ------------------ | -------------------------------------------------- | ----------------------- |
-| `HELIX_ENDPOINT`   | HelixDB HTTP endpoint                              | `http://localhost:6969` |
+| `--enable_helix`   | CLI flag to use HelixDB instead of in-memory mode  | not set (in-memory)     |
+| `HELIX_ENDPOINT`   | HelixDB HTTP endpoint (when `--enable_helix` set)  | `http://localhost:6969` |
 | `PORT`             | Port for the optional Express server               | `3001`                  |
 | `LOCAL_EMBEDDINGS` | Force on-device embeddings (`1`) instead of OpenAI | `0`                     |
 | `OPENAI_API_KEY`   | OpenAI key for embeddings (optional)               | –                       |
 | `AI_PROXY_URL`     | Downstream AI proxy for `/api/ai/engine`           | `http://localhost:8787` |
 
 Copy `.env.example` and tweak as needed.
+
+**Note:** By default, the SDK runs with an in-memory graph store. Pass `--enable_helix` when starting the server to use HelixDB.
 
 ---
 

@@ -61,8 +61,8 @@ A hosted version of the Treyspace SDK with a full user interface and an Excalidr
 
 - Node.js >= 18.0.0
 - npm >= 9.0.0
-- Helix DB instance
 - OpenAI API key
+- Helix DB instance (optional - can run with in-memory mode)
 
 ### Installation
 
@@ -78,8 +78,8 @@ A hosted version of the Treyspace SDK with a full user interface and an Excalidr
    cp .env.example .env
    ```
 
-   - Only set `OPENAI_API_KEY` to run locally. Helix URLs already point to `http://localhost:3001` (RAG) and `http://localhost:6969` (DB).
-   - Follow the [Helix install guide](https://docs.helix-db.com/documentation/getting-started/installation) if you haven’t deployed Helix yet.
+   - Only set `OPENAI_API_KEY` to run locally.
+   - **Helix is optional** – By default, the SDK uses an in-memory graph store. To use HelixDB instead, pass `--enable_helix` when starting the server or follow the [Helix install guide](https://docs.helix-db.com/documentation/getting-started/installation).
 
 3. **Start the SDK façade**
 
@@ -103,21 +103,20 @@ A hosted version of the Treyspace SDK with a full user interface and an Excalidr
    npm run smoke              # health check (requires servers from steps 3 & 4)
    npm run test:smoke         # requires OPENAI_API_KEY
    npm run test:integration   # full pipeline (OPENAI_API_KEY required)
-   npx tsx tests/runFullPipeline.spec.mjs --disable_helix   # full pipeline using in-memory Helix
+   npx tsx tests/runFullPipeline.spec.mjs   # full pipeline using in-memory mode (default)
    ```
    The `test:*` commands start (and stop) both the SDK façade and the AI proxy automatically and skip if `OPENAI_API_KEY` is not set.
 
-### In-memory CLI mode
+### Helix Database (Optional)
 
-Running CLI tools without provisioning Helix? Enable the bundled in-memory graph implementation with the `cli` runtime tag:
+By default, the SDK runs with an **in-memory graph store** – perfect for development, testing, or lightweight deployments. To enable the full HelixDB backend for production use:
 
 ```bash
-# Start the façade with the in-memory Helix replacement
-node sdk/server.js --disable_helix
+# Start the façade with HelixDB enabled
+node sdk/server.js --enable_helix
 
-# Or export the tag for scripts/tests
-export SDK_TAGS=cli
-npx tsx tests/sdkSmoke.spec.mjs
+# The default (in-memory) mode requires no additional flags
+node sdk/server.js
 ```
 
 ## Project Structure
@@ -215,9 +214,9 @@ Connect with us on social media:
 ```bash
 npm run smoke  # requires server running in another shell
 npx tsx tests/sdkSmoke.spec.mjs
-npx tsx tests/runFullPipeline.spec.mjs
-# In-memory Helix mode
-npx tsx tests/runFullPipeline.spec.mjs --disable_helix
+npx tsx tests/runFullPipeline.spec.mjs  # uses in-memory mode by default
+# To test with HelixDB
+npx tsx tests/runFullPipeline.spec.mjs --enable_helix
 ```
 
 ## License
