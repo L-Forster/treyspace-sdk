@@ -158,7 +158,7 @@ async function main() {
 
   const headers = { "X-User-Id": USER_ID };
   let helixBase;
-  const backendUrl = "http://127.0.0.1:8787";
+  const backendUrl = "http://127.0.0.1:8788";
 
   try {
     const { port } = await startHelixFacadeServer();

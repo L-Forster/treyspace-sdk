@@ -3,7 +3,7 @@ import "dotenv/config";
 import { readFileSync } from "fs";
 import { executeFullPipeline } from "treyspace-sdk";
 
-const data = JSON.parse(readFileSync("./examples/sample-board.json", "utf8"));
+const data = JSON.parse(readFileSync("./benchmarks/test-canvas-100nodes.json", "utf8"));
 
 
 const result = await executeFullPipeline({

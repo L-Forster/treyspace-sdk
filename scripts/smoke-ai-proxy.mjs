@@ -6,7 +6,7 @@
  */
 
 const defaultHost = process.env.HOST || "127.0.0.1";
-const defaultPort = process.env.PORT || "8787";
+const defaultPort = process.env.PORT || "8788";
 const baseUrl = process.env.AI_BACKEND_URL || `http://${defaultHost}:${defaultPort}`;
 
 const url = new URL("/healthz", baseUrl);

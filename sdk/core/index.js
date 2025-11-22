@@ -428,7 +428,7 @@ export const startPipelineBackend = async (helixRagUrl) => {
   return new Promise((resolve, reject) => {
     const proc = spawn("node", [backendPath], {
       stdio: ["ignore", "pipe", "pipe"],
-      env: { ...process.env, PORT: "8787", HELIX_RAG_URL: helixRagUrl },
+      env: { ...process.env, PORT: "8788", HELIX_RAG_URL: helixRagUrl },
     });
 
     // Track process immediately so cleanup works even if startup fails
@@ -440,7 +440,7 @@ export const startPipelineBackend = async (helixRagUrl) => {
       debug("[Backend]:", output.trim());
       if (output.includes("listening on") && !started) {
         started = true;
-        resolve({ port: 8787 });
+        resolve({ port: 8788 });
       }
     });
 
@@ -572,7 +572,7 @@ export const executeFullPipeline = async ({
       process.env.TREYSPACE_BACKEND_URL ||
       process.env.VITE_AI_BACKEND_URL ||
       process.env.VITE_TREYSPACE_BACKEND_URL ||
-      "http://localhost:8787";
+      "http://localhost:8788";
 
     const backendHost = backendUrl.replace(/^https?:\/\//, "").replace(/\/.*$/, "");
     const backendProtocol = backendUrl.startsWith("https") ? "https" : "http";

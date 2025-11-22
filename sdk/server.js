@@ -44,7 +44,7 @@ app.set("trust proxy", true);
 const getAllowedOrigins = () => {
   const defaultOrigins =
     process.env.NODE_ENV === "production"
-      ? [process.env.HELIX_INTERNAL_ORIGIN || "http://localhost:8787"].join(",")
+      ? [process.env.HELIX_INTERNAL_ORIGIN || "http://localhost:8788"].join(",")
       : "http://localhost:3000,http://localhost:5173";
 
   const origins =
@@ -313,7 +313,7 @@ await startHelixServer();
 const HELIX_ENDPOINT = process.env.HELIX_ENDPOINT || "http://localhost:6969";
 const { helix, callHelix } = createHelix(HELIX_ENDPOINT);
 const AI_PROXY_URL =
-  process.env.AI_PROXY_URL || process.env.VITE_AI_PROXY_URL || "http://localhost:8787";
+  process.env.AI_PROXY_URL || process.env.VITE_AI_PROXY_URL || "http://localhost:8788";
 
 const MAX_ELEMENTS_PER_SYNC = Number(process.env.MAX_ELEMENTS_PER_SYNC || 1500);
 const MAX_PAYLOAD_BYTES = Number(process.env.MAX_SYNC_PAYLOAD_BYTES || 10 * 1024 * 1024);

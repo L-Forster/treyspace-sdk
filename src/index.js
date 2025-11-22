@@ -123,7 +123,7 @@ const initializeServer = async () => {
   await loadEnvironment();
 
   // Initialize constants after env loading
-  PORT = process.env.PORT || 8787;
+  PORT = process.env.PORT || 8788;
   OPENAI_API_KEY = process.env.OPENAI_API_KEY || process.env.VITE_OPENAI_API_KEY || "";
   // SDK mode: Allow all origins in development
   const envOrigins = String(process.env.ALLOWED_ORIGINS || "")

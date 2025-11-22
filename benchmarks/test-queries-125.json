@@ -1,0 +1,966 @@
+{
+  "benchmarkQueries": {
+    "description": "Comprehensive benchmark queries for 100-node canvas evaluation",
+    "totalQueries": 125,
+    "canvasFile": "test-canvas-100nodes.json",
+    "categories": [
+      {
+        "name": "Node Retrieval",
+        "description": "Direct node lookup and single-entity queries",
+        "count": 30,
+        "queries": [
+          {
+            "id": "NR-001",
+            "query": "What customer requests are related to dark mode?",
+            "groundTruth": ["customer-1"],
+            "evaluation": "Correct if returns customer-1 (text: 'User requests dark mode')"
+          },
+          {
+            "id": "NR-002",
+            "query": "Which feature handles PDF export?",
+            "groundTruth": ["feature-3"],
+            "evaluation": "Correct if returns feature-3 (text: 'PDF Export')"
+          },
+          {
+            "id": "NR-003",
+            "query": "What technology component manages authentication?",
+            "groundTruth": ["tech-16"],
+            "evaluation": "Correct if returns tech-16 (text: 'Auth Service')"
+          },
+          {
+            "id": "NR-004",
+            "query": "Which revenue stream is related to Enterprise SSO?",
+            "groundTruth": ["revenue-16"],
+            "evaluation": "Correct if returns revenue-16 (text: 'Enterprise SSO Plan')"
+          },
+          {
+            "id": "NR-005",
+            "query": "Find the customer requesting offline mode support",
+            "groundTruth": ["customer-7"],
+            "evaluation": "Correct if returns customer-7 (text: 'Offline mode support')"
+          },
+          {
+            "id": "NR-006",
+            "query": "What is the Real-time Collaboration feature?",
+            "groundTruth": ["feature-4"],
+            "evaluation": "Correct if returns feature-4"
+          },
+          {
+            "id": "NR-007",
+            "query": "Which tech component is the WebSocket Server?",
+            "groundTruth": ["tech-4"],
+            "evaluation": "Correct if returns tech-4"
+          },
+          {
+            "id": "NR-008",
+            "query": "Find the Template Marketplace revenue stream",
+            "groundTruth": ["revenue-10"],
+            "evaluation": "Correct if returns revenue-10"
+          },
+          {
+            "id": "NR-009",
+            "query": "Who requested keyboard shortcuts?",
+            "groundTruth": ["customer-9"],
+            "evaluation": "Correct if returns customer-9"
+          },
+          {
+            "id": "NR-010",
+            "query": "What feature provides smart notifications?",
+            "groundTruth": ["feature-8"],
+            "evaluation": "Correct if returns feature-8"
+          },
+          {
+            "id": "NR-011",
+            "query": "Which customer wants SSO authentication?",
+            "groundTruth": ["customer-16"],
+            "evaluation": "Correct if returns customer-16"
+          },
+          {
+            "id": "NR-012",
+            "query": "Find the Analytics Suite feature",
+            "groundTruth": ["feature-19"],
+            "evaluation": "Correct if returns feature-19"
+          },
+          {
+            "id": "NR-013",
+            "query": "What technology handles search indexing?",
+            "groundTruth": ["tech-5"],
+            "evaluation": "Correct if returns tech-5 (text: 'Search Index')"
+          },
+          {
+            "id": "NR-014",
+            "query": "Which customer needs collaborative editing?",
+            "groundTruth": ["customer-4"],
+            "evaluation": "Correct if returns customer-4"
+          },
+          {
+            "id": "NR-015",
+            "query": "Find the Mobile Optimization feature",
+            "groundTruth": ["feature-2"],
+            "evaluation": "Correct if returns feature-2"
+          },
+          {
+            "id": "NR-016",
+            "query": "What is the CDN Integration component?",
+            "groundTruth": ["tech-14"],
+            "evaluation": "Correct if returns tech-14"
+          },
+          {
+            "id": "NR-017",
+            "query": "Which revenue stream represents the Team Plan?",
+            "groundTruth": ["revenue-4"],
+            "evaluation": "Correct if returns revenue-4"
+          },
+          {
+            "id": "NR-018",
+            "query": "Who wants better notifications?",
+            "groundTruth": ["customer-8"],
+            "evaluation": "Correct if returns customer-8"
+          },
+          {
+            "id": "NR-019",
+            "query": "Find the i18n Framework component",
+            "groundTruth": ["tech-22"],
+            "evaluation": "Correct if returns tech-22"
+          },
+          {
+            "id": "NR-020",
+            "query": "What feature handles version control?",
+            "groundTruth": ["feature-11"],
+            "evaluation": "Correct if returns feature-11"
+          },
+          {
+            "id": "NR-021",
+            "query": "Which customer requested webhooks support?",
+            "groundTruth": ["customer-21"],
+            "evaluation": "Correct if returns customer-21"
+          },
+          {
+            "id": "NR-022",
+            "query": "Find the Batch Processing feature",
+            "groundTruth": ["feature-17"],
+            "evaluation": "Correct if returns feature-17"
+          },
+          {
+            "id": "NR-023",
+            "query": "What technology manages the queue system?",
+            "groundTruth": ["tech-17"],
+            "evaluation": "Correct if returns tech-17 (text: 'Queue System')"
+          },
+          {
+            "id": "NR-024",
+            "query": "Which customer wants custom branding?",
+            "groundTruth": ["customer-15"],
+            "evaluation": "Correct if returns customer-15"
+          },
+          {
+            "id": "NR-025",
+            "query": "Find the ARIA Compliance feature",
+            "groundTruth": ["feature-23"],
+            "evaluation": "Correct if returns feature-23"
+          },
+          {
+            "id": "NR-026",
+            "query": "What is the Storage Service component?",
+            "groundTruth": ["tech-25"],
+            "evaluation": "Correct if returns tech-25"
+          },
+          {
+            "id": "NR-027",
+            "query": "Which revenue stream is the Developer Plan?",
+            "groundTruth": ["revenue-19"],
+            "evaluation": "Correct if returns revenue-19"
+          },
+          {
+            "id": "NR-028",
+            "query": "Who requested multi-language support?",
+            "groundTruth": ["customer-22"],
+            "evaluation": "Correct if returns customer-22"
+          },
+          {
+            "id": "NR-029",
+            "query": "Find the Hotkeys System feature",
+            "groundTruth": ["feature-9"],
+            "evaluation": "Correct if returns feature-9"
+          },
+          {
+            "id": "NR-030",
+            "query": "What technology provides the Event Bus?",
+            "groundTruth": ["tech-21"],
+            "evaluation": "Correct if returns tech-21"
+          }
+        ]
+      },
+      {
+        "name": "Edge/Relationship Queries",
+        "description": "Direct edge and single-hop relationship queries",
+        "count": 25,
+        "queries": [
+          {
+            "id": "ER-001",
+            "query": "Does customer-1 request feature-1?",
+            "groundTruth": "YES",
+            "edgeId": "edge-1",
+            "evaluation": "Correct if confirms edge exists with label 'feature_request'"
+          },
+          {
+            "id": "ER-002",
+            "query": "Does tech-4 implement feature-4?",
+            "groundTruth": "YES",
+            "edgeId": "edge-74",
+            "evaluation": "Correct if confirms edge exists with label 'implements'"
+          },
+          {
+            "id": "ER-003",
+            "query": "Does feature-1 generate revenue-1?",
+            "groundTruth": "YES",
+            "edgeId": "edge-96",
+            "evaluation": "Correct if confirms edge exists with label 'generates_revenue'"
+          },
+          {
+            "id": "ER-004",
+            "query": "Does tech-1 block tech-6?",
+            "groundTruth": "YES",
+            "edgeId": "edge-41",
+            "evaluation": "Correct if confirms edge exists with label 'blocks'"
+          },
+          {
+            "id": "ER-005",
+            "query": "List all features that customer-2 requested",
+            "groundTruth": ["feature-2", "feature-6"],
+            "edgeIds": ["edge-2", "edge-32"],
+            "evaluation": "Correct if returns both feature-2 and feature-6"
+          },
+          {
+            "id": "ER-006",
+            "query": "What technologies implement feature-16?",
+            "groundTruth": ["tech-16"],
+            "edgeIds": ["edge-86"],
+            "evaluation": "Correct if returns tech-16 (Auth Service)"
+          },
+          {
+            "id": "ER-007",
+            "query": "Which revenue streams does feature-1 generate?",
+            "groundTruth": ["revenue-1", "revenue-15"],
+            "edgeIds": ["edge-96", "edge-119"],
+            "evaluation": "Correct if returns both revenue-1 and revenue-15"
+          },
+          {
+            "id": "ER-008",
+            "query": "What does tech-2 block?",
+            "groundTruth": ["tech-14"],
+            "edgeIds": ["edge-42"],
+            "evaluation": "Correct if returns tech-14 (CDN Integration)"
+          },
+          {
+            "id": "ER-009",
+            "query": "Which features are requested by customer-5?",
+            "groundTruth": ["feature-5", "feature-17"],
+            "edgeIds": ["edge-5", "edge-36"],
+            "evaluation": "Correct if returns both feature-5 and feature-17"
+          },
+          {
+            "id": "ER-010",
+            "query": "Does feature-4 relate to feature-12?",
+            "groundTruth": "YES",
+            "edgeId": "edge-128",
+            "evaluation": "Correct if confirms edge exists with label 'related_to'"
+          },
+          {
+            "id": "ER-011",
+            "query": "What blocks tech-16?",
+            "groundTruth": ["tech-4", "tech-12"],
+            "edgeIds": ["edge-44", "edge-52"],
+            "evaluation": "Correct if returns both tech-4 and tech-12"
+          },
+          {
+            "id": "ER-012",
+            "query": "Which customers request feature-3?",
+            "groundTruth": ["customer-3", "customer-28"],
+            "edgeIds": ["edge-3", "edge-28"],
+            "evaluation": "Correct if returns both customer-3 and customer-28"
+          },
+          {
+            "id": "ER-013",
+            "query": "Does tech-5 implement feature-5?",
+            "groundTruth": "YES",
+            "edgeId": "edge-75",
+            "evaluation": "Correct if confirms implements relationship"
+          },
+          {
+            "id": "ER-014",
+            "query": "Which features generate revenue-15?",
+            "groundTruth": ["feature-1", "feature-15", "feature-23"],
+            "edgeIds": ["edge-119", "edge-110", "edge-116"],
+            "evaluation": "Correct if returns all three features"
+          },
+          {
+            "id": "ER-015",
+            "query": "What does customer-14 request?",
+            "groundTruth": ["feature-14", "feature-2"],
+            "edgeIds": ["edge-14", "edge-33"],
+            "evaluation": "Correct if returns both features"
+          },
+          {
+            "id": "ER-016",
+            "query": "Is tech-11 related to tech-12?",
+            "groundTruth": "YES",
+            "edgeId": "edge-139",
+            "evaluation": "Correct if confirms related_to relationship"
+          },
+          {
+            "id": "ER-017",
+            "query": "Which features does customer-1 request?",
+            "groundTruth": ["feature-1", "feature-23"],
+            "edgeIds": ["edge-1", "edge-31"],
+            "evaluation": "Correct if returns both feature-1 and feature-23"
+          },
+          {
+            "id": "ER-018",
+            "query": "Does tech-16 block tech-4?",
+            "groundTruth": "YES",
+            "edgeId": "edge-56",
+            "evaluation": "Correct if confirms blocks relationship"
+          },
+          {
+            "id": "ER-019",
+            "query": "What revenue does feature-20 generate?",
+            "groundTruth": ["revenue-19"],
+            "edgeIds": ["edge-114"],
+            "evaluation": "Correct if returns revenue-19"
+          },
+          {
+            "id": "ER-020",
+            "query": "Which features request from customer-10?",
+            "groundTruth": ["feature-10", "feature-25"],
+            "edgeIds": ["edge-10", "edge-38"],
+            "evaluation": "Correct if returns both features"
+          },
+          {
+            "id": "ER-021",
+            "query": "Is customer-3 related to customer-28?",
+            "groundTruth": "YES",
+            "edgeId": "edge-121",
+            "evaluation": "Correct if confirms related_to relationship"
+          },
+          {
+            "id": "ER-022",
+            "query": "What does tech-7 block?",
+            "groundTruth": ["tech-24"],
+            "edgeIds": ["edge-47"],
+            "evaluation": "Correct if returns tech-24"
+          },
+          {
+            "id": "ER-023",
+            "query": "Which revenue streams relate to revenue-15?",
+            "groundTruth": ["revenue-1", "revenue-4", "revenue-5", "revenue-16"],
+            "edgeIds": ["edge-143", "edge-144", "edge-145", "edge-146"],
+            "evaluation": "Correct if returns all four revenue streams"
+          },
+          {
+            "id": "ER-024",
+            "query": "Does feature-5 relate to feature-17?",
+            "groundTruth": "YES",
+            "edgeId": "edge-129",
+            "evaluation": "Correct if confirms related_to relationship"
+          },
+          {
+            "id": "ER-025",
+            "query": "What features does customer-19 request?",
+            "groundTruth": ["feature-19", "feature-20"],
+            "edgeIds": ["edge-19", "edge-34"],
+            "evaluation": "Correct if returns both features"
+          }
+        ]
+      },
+      {
+        "name": "Path Finding",
+        "description": "Multi-hop path queries requiring traversal",
+        "count": 20,
+        "queries": [
+          {
+            "id": "PF-001",
+            "query": "Trace the path from customer-1 to revenue-1",
+            "groundTruth": {
+              "path": ["customer-1", "feature-1", "revenue-1"],
+              "edges": ["edge-1", "edge-96"]
+            },
+            "evaluation": "Correct if finds path customer-1 → feature-1 → revenue-1"
+          },
+          {
+            "id": "PF-002",
+            "query": "How does customer-16 connect to revenue-16?",
+            "groundTruth": {
+              "path": ["customer-16", "feature-16", "revenue-16"],
+              "edges": ["edge-16", "edge-111"]
+            },
+            "evaluation": "Correct if finds path customer-16 → feature-16 → revenue-16"
+          },
+          {
+            "id": "PF-003",
+            "query": "What is the dependency chain from tech-3 through tech-2 to tech-14?",
+            "groundTruth": {
+              "path": ["tech-3", "tech-2", "tech-14"],
+              "edges": ["edge-43", "edge-42"]
+            },
+            "evaluation": "Correct if finds blocking chain tech-3 → tech-2 → tech-14"
+          },
+          {
+            "id": "PF-004",
+            "query": "Find the path from customer-4 to revenue-4 through features",
+            "groundTruth": {
+              "path": ["customer-4", "feature-4", "revenue-4"],
+              "edges": ["edge-4", "edge-99"]
+            },
+            "evaluation": "Correct if finds path customer-4 → feature-4 → revenue-4"
+          },
+          {
+            "id": "PF-005",
+            "query": "How does tech-1 ultimately affect feature-6?",
+            "groundTruth": {
+              "path": ["tech-1", "tech-6", "feature-6"],
+              "edges": ["edge-41", "edge-76"]
+            },
+            "evaluation": "Correct if finds path tech-1 → tech-6 → feature-6"
+          },
+          {
+            "id": "PF-006",
+            "query": "Trace blocking dependencies from tech-5 to tech-20",
+            "groundTruth": {
+              "path": ["tech-5", "tech-19", "tech-20"],
+              "edges": ["edge-45", "edge-59"]
+            },
+            "evaluation": "Correct if finds path tech-5 → tech-19 → tech-20"
+          },
+          {
+            "id": "PF-007",
+            "query": "What connects customer-7 to revenue-7?",
+            "groundTruth": {
+              "path": ["customer-7", "feature-7", "revenue-7"],
+              "edges": ["edge-7", "edge-102"]
+            },
+            "evaluation": "Correct if finds path customer-7 → feature-7 → revenue-7"
+          },
+          {
+            "id": "PF-008",
+            "query": "Find the relationship chain from customer-3 to customer-28 to feature-3",
+            "groundTruth": {
+              "path": ["customer-3", "customer-28", "feature-3"],
+              "edges": ["edge-121", "edge-28"]
+            },
+            "evaluation": "Correct if finds path customer-3 → customer-28 → feature-3"
+          },
+          {
+            "id": "PF-009",
+            "query": "How does tech-16 connect to feature-16 through blocking and implementing?",
+            "groundTruth": {
+              "path": ["tech-16", "feature-16"],
+              "edges": ["edge-86"]
+            },
+            "evaluation": "Correct if finds direct implements relationship"
+          },
+          {
+            "id": "PF-010",
+            "query": "Trace the path from customer-1 to revenue-15 via feature-1",
+            "groundTruth": {
+              "path": ["customer-1", "feature-1", "revenue-15"],
+              "edges": ["edge-1", "edge-119"]
+            },
+            "evaluation": "Correct if finds path customer-1 → feature-1 → revenue-15"
+          },
+          {
+            "id": "PF-011",
+            "query": "What is the blocking chain from tech-7 to tech-7?",
+            "groundTruth": {
+              "path": ["tech-7", "tech-24", "tech-7"],
+              "edges": ["edge-47", "edge-64"]
+            },
+            "evaluation": "Correct if finds circular dependency tech-7 → tech-24 → tech-7"
+          },
+          {
+            "id": "PF-012",
+            "query": "How do customer-5's requests lead to revenue-5?",
+            "groundTruth": {
+              "paths": [
+                ["customer-5", "feature-5", "revenue-5"]
+              ],
+              "edges": ["edge-5", "edge-100"]
+            },
+            "evaluation": "Correct if finds at least one valid path to revenue-5"
+          },
+          {
+            "id": "PF-013",
+            "query": "Find the connection from tech-1 to tech-1 (circular dependency)",
+            "groundTruth": {
+              "path": ["tech-1", "tech-15", "tech-1"],
+              "edges": ["edge-55", "edge-66"]
+            },
+            "evaluation": "Correct if finds circular path tech-1 → tech-15 → tech-1"
+          },
+          {
+            "id": "PF-014",
+            "query": "Trace customer-21's impact on revenue-19",
+            "groundTruth": {
+              "path": ["customer-21", "feature-21", "revenue-20"],
+              "note": "Does NOT reach revenue-19 directly"
+            },
+            "evaluation": "Correct if identifies no direct path to revenue-19, but finds path to revenue-20"
+          },
+          {
+            "id": "PF-015",
+            "query": "What is the shortest path from customer-10 to revenue-10?",
+            "groundTruth": {
+              "path": ["customer-10", "feature-10", "revenue-10"],
+              "edges": ["edge-10", "edge-105"]
+            },
+            "evaluation": "Correct if finds direct 2-hop path"
+          },
+          {
+            "id": "PF-016",
+            "query": "How does tech-24 relate back to tech-7?",
+            "groundTruth": {
+              "path": ["tech-24", "tech-7"],
+              "edges": ["edge-64"]
+            },
+            "evaluation": "Correct if finds blocking relationship tech-24 → tech-7"
+          },
+          {
+            "id": "PF-017",
+            "query": "Find paths from customer-14 to any revenue stream",
+            "groundTruth": {
+              "paths": [
+                ["customer-14", "feature-14", "revenue-14"],
+                ["customer-14", "feature-2", "revenue-2"]
+              ]
+            },
+            "evaluation": "Correct if finds both valid paths to revenue streams"
+          },
+          {
+            "id": "PF-018",
+            "query": "Trace the blocking chain from tech-21 to tech-25",
+            "groundTruth": {
+              "path": ["tech-21", "tech-18", "tech-25"],
+              "edges": ["edge-61", "edge-58"]
+            },
+            "evaluation": "Correct if finds path tech-21 → tech-18 → tech-25"
+          },
+          {
+            "id": "PF-019",
+            "query": "How does customer-29 connect to revenue-4?",
+            "groundTruth": {
+              "path": ["customer-29", "feature-4", "revenue-4"],
+              "edges": ["edge-29", "edge-99"]
+            },
+            "evaluation": "Correct if finds path customer-29 → feature-4 → revenue-4"
+          },
+          {
+            "id": "PF-020",
+            "query": "Find all 3-hop paths from customer-1 to any revenue",
+            "groundTruth": {
+              "paths": [
+                ["customer-1", "feature-1", "revenue-1"],
+                ["customer-1", "feature-1", "revenue-15"],
+                ["customer-1", "feature-23", "revenue-15"]
+              ]
+            },
+            "evaluation": "Correct if finds all three paths"
+          }
+        ]
+      },
+      {
+        "name": "Aggregation Queries",
+        "description": "Counting, grouping, and statistical queries",
+        "count": 15,
+        "queries": [
+          {
+            "id": "AG-001",
+            "query": "How many features does customer-1 request?",
+            "groundTruth": 2,
+            "features": ["feature-1", "feature-23"],
+            "evaluation": "Correct if returns count of 2"
+          },
+          {
+            "id": "AG-002",
+            "query": "Count all revenue streams generated by feature-1",
+            "groundTruth": 2,
+            "revenues": ["revenue-1", "revenue-15"],
+            "evaluation": "Correct if returns count of 2"
+          },
+          {
+            "id": "AG-003",
+            "query": "How many technologies block tech-16?",
+            "groundTruth": 5,
+            "techs": ["tech-4", "tech-12", "tech-20", "tech-25", "tech-16 (self)"],
+            "evaluation": "Correct if returns count of 5 (includes tech-4, tech-12 direct blocks, plus others)"
+          },
+          {
+            "id": "AG-004",
+            "query": "How many customers request feature-4?",
+            "groundTruth": 3,
+            "customers": ["customer-4", "customer-12", "customer-29"],
+            "evaluation": "Correct if returns count of 3"
+          },
+          {
+            "id": "AG-005",
+            "query": "Count all features that generate revenue-5",
+            "groundTruth": 4,
+            "features": ["feature-5", "feature-18", "feature-24", "feature-25"],
+            "evaluation": "Correct if returns count of 4"
+          },
+          {
+            "id": "AG-006",
+            "query": "How many features are related to other features?",
+            "groundTruth": 20,
+            "note": "Count of unique features involved in related_to edges between features",
+            "evaluation": "Correct if counts all unique features with related_to edges (edges 125-135)"
+          },
+          {
+            "id": "AG-007",
+            "query": "What is the total number of blocking relationships between technologies?",
+            "groundTruth": 30,
+            "note": "Count of edges 41-70 (blocks relationships)",
+            "evaluation": "Correct if returns count of 30"
+          },
+          {
+            "id": "AG-008",
+            "query": "How many customers request exactly 2 features?",
+            "groundTruth": 13,
+            "customers": ["customer-1", "customer-2", "customer-5", "customer-8", "customer-10", "customer-12", "customer-14", "customer-15", "customer-19", "customer-21", "customer-27", "customer-30", "customer-11"],
+            "evaluation": "Correct if identifies customers with exactly 2 outgoing feature_request edges"
+          },
+          {
+            "id": "AG-009",
+            "query": "Count features that generate multiple revenue streams",
+            "groundTruth": 4,
+            "features": ["feature-1", "feature-18", "feature-23", "feature-24", "feature-25"],
+            "evaluation": "Correct if identifies features with 2+ generates_revenue edges"
+          },
+          {
+            "id": "AG-010",
+            "query": "How many technologies implement features?",
+            "groundTruth": 25,
+            "note": "All 25 tech components implement exactly one feature",
+            "evaluation": "Correct if returns count of 25"
+          },
+          {
+            "id": "AG-011",
+            "query": "What percentage of features generate revenue?",
+            "groundTruth": "100%",
+            "note": "All 25 features have at least one generates_revenue edge",
+            "evaluation": "Correct if calculates 25/25 = 100%"
+          },
+          {
+            "id": "AG-012",
+            "query": "Count all nodes of type ellipse (features)",
+            "groundTruth": 25,
+            "evaluation": "Correct if returns count of 25 based on type='ellipse'"
+          },
+          {
+            "id": "AG-013",
+            "query": "How many technologies does tech-21 block?",
+            "groundTruth": 1,
+            "techs": ["tech-18"],
+            "evaluation": "Correct if returns count of 1"
+          },
+          {
+            "id": "AG-014",
+            "query": "Count total number of relationships in the canvas",
+            "groundTruth": 150,
+            "note": "Total edges in the canvas",
+            "evaluation": "Correct if returns count of 150"
+          },
+          {
+            "id": "AG-015",
+            "query": "How many revenue streams relate to revenue-15?",
+            "groundTruth": 4,
+            "revenues": ["revenue-1", "revenue-4", "revenue-5", "revenue-16"],
+            "evaluation": "Correct if returns count of 4"
+          }
+        ]
+      },
+      {
+        "name": "Filtering/Intersection",
+        "description": "Complex filtering and set intersection queries",
+        "count": 15,
+        "queries": [
+          {
+            "id": "FI-001",
+            "query": "Find customers who request both mobile and performance features",
+            "groundTruth": ["customer-2", "customer-14"],
+            "note": "customer-2 requests feature-2 (Mobile Optimization) and feature-6; customer-14 requests feature-14 (Performance Boost) and feature-2",
+            "evaluation": "Correct if identifies customers with requests to both categories"
+          },
+          {
+            "id": "FI-002",
+            "query": "Which features are requested by multiple customers AND generate multiple revenue streams?",
+            "groundTruth": ["feature-3", "feature-4", "feature-5", "feature-6", "feature-16", "feature-20", "feature-23"],
+            "evaluation": "Correct if finds intersection of multi-request features and multi-revenue features"
+          },
+          {
+            "id": "FI-003",
+            "query": "Find technologies that both block other tech AND are blocked by other tech",
+            "groundTruth": ["tech-2", "tech-4", "tech-6", "tech-7", "tech-16", "tech-18", "tech-21", "tech-24", "tech-25"],
+            "evaluation": "Correct if identifies techs with both incoming and outgoing blocks edges"
+          },
+          {
+            "id": "FI-004",
+            "query": "List features related to both other features AND revenue streams",
+            "groundTruth": ["feature-1", "feature-2", "feature-3", "feature-4", "feature-5", "feature-7", "feature-8", "feature-13", "feature-14", "feature-15", "feature-16", "feature-19", "feature-20", "feature-21", "feature-23", "feature-24", "feature-25"],
+            "evaluation": "Correct if finds features with related_to edges to other features AND generates_revenue edges"
+          },
+          {
+            "id": "FI-005",
+            "query": "Which customers request features that are implemented by technologies blocking tech-16?",
+            "groundTruth": ["customer-4", "customer-12", "customer-29"],
+            "note": "tech-4 and tech-12 block tech-16; they implement feature-4 and feature-12",
+            "evaluation": "Correct if traces path: customer → feature → tech → blocks → tech-16"
+          },
+          {
+            "id": "FI-006",
+            "query": "Find all purple-colored nodes (revenue streams) connected to features requested by customer-1",
+            "groundTruth": ["revenue-1", "revenue-15"],
+            "evaluation": "Correct if filters by backgroundColor='#e599f7' and traces from customer-1"
+          },
+          {
+            "id": "FI-007",
+            "query": "Which features generate revenue AND are related to feature-15?",
+            "groundTruth": ["feature-1", "feature-16"],
+            "note": "feature-1 and feature-16 have related_to edges to feature-15",
+            "evaluation": "Correct if finds features with both generates_revenue and related_to feature-15"
+          },
+          {
+            "id": "FI-008",
+            "query": "List customers who request features that share the same implementing technology",
+            "groundTruth": {
+              "note": "Each tech implements only one feature, so need to find customers requesting features from same tech",
+              "example": []
+            },
+            "evaluation": "Since each tech implements exactly one feature, result should be empty or identify shared feature requests"
+          },
+          {
+            "id": "FI-009",
+            "query": "Find diamond-shaped nodes (technologies) that implement features related to feature-1",
+            "groundTruth": ["tech-15"],
+            "note": "feature-15 is related to feature-1; tech-15 implements feature-15",
+            "evaluation": "Correct if filters by type='diamond' and traces relationships"
+          },
+          {
+            "id": "FI-010",
+            "query": "Which customers are related to other customers AND request features generating Enterprise Plan revenue?",
+            "groundTruth": ["customer-3", "customer-4", "customer-7", "customer-9"],
+            "note": "These customers have related_to edges and their requested features eventually generate revenue-15",
+            "evaluation": "Correct if finds intersection of related customers and those requesting features → revenue-15"
+          },
+          {
+            "id": "FI-011",
+            "query": "Find features that are NOT requested by customer-1 but ARE related to features customer-1 requests",
+            "groundTruth": ["feature-15", "feature-16"],
+            "note": "customer-1 requests feature-1 and feature-23; feature-1 relates to feature-15, feature-16 relates to feature-15",
+            "evaluation": "Correct if excludes customer-1's direct requests but includes related features"
+          },
+          {
+            "id": "FI-012",
+            "query": "Which technologies block each other in a circular dependency?",
+            "groundTruth": [
+              {"cycle": ["tech-1", "tech-15"]},
+              {"cycle": ["tech-7", "tech-24"]},
+              {"cycle": ["tech-4", "tech-16"]}
+            ],
+            "evaluation": "Correct if identifies circular blocking relationships"
+          },
+          {
+            "id": "FI-013",
+            "query": "Find customers requesting features implemented by technologies in the Event Bus dependency chain",
+            "groundTruth": ["customer-8", "customer-21", "customer-13", "customer-5", "customer-17", "customer-18"],
+            "note": "tech-21 (Event Bus) is involved in multiple dependencies",
+            "evaluation": "Correct if traces from tech-21 → implements → feature → requested_by → customer"
+          },
+          {
+            "id": "FI-014",
+            "query": "List all features that generate revenue-5 AND are related to other features",
+            "groundTruth": ["feature-5", "feature-24", "feature-25"],
+            "note": "feature-18 generates revenue-5 but has no related_to edges with other features",
+            "evaluation": "Correct if finds intersection of revenue-5 generators and features with related_to edges"
+          },
+          {
+            "id": "FI-015",
+            "query": "Which revenue streams are generated by features requested by customers related to customer-4?",
+            "groundTruth": ["revenue-4", "revenue-12", "revenue-7", "revenue-5"],
+            "note": "customer-4 is related to customer-29 via edge-122; customer-29 requests feature-4",
+            "evaluation": "Correct if traces: customer-4 → related_to → customer → requests → feature → generates → revenue"
+          }
+        ]
+      },
+      {
+        "name": "Attribute Queries",
+        "description": "Queries based on node properties and attributes",
+        "count": 10,
+        "queries": [
+          {
+            "id": "AQ-001",
+            "query": "Find all nodes with blue background color",
+            "groundTruth": ["customer-1", "customer-2", "...", "customer-30"],
+            "note": "30 customer nodes with backgroundColor='#a5d8ff'",
+            "evaluation": "Correct if returns all 30 customer nodes"
+          },
+          {
+            "id": "AQ-002",
+            "query": "List all ellipse-shaped nodes",
+            "groundTruth": ["feature-1", "feature-2", "...", "feature-25"],
+            "note": "25 feature nodes with type='ellipse'",
+            "evaluation": "Correct if returns all 25 feature nodes"
+          },
+          {
+            "id": "AQ-003",
+            "query": "Find nodes with orange stroke color",
+            "groundTruth": ["tech-1", "tech-2", "...", "tech-25"],
+            "note": "25 tech nodes with strokeColor='#e67700'",
+            "evaluation": "Correct if returns all 25 tech nodes"
+          },
+          {
+            "id": "AQ-004",
+            "query": "Which nodes are diamond-shaped?",
+            "groundTruth": ["tech-1", "tech-2", "...", "tech-25"],
+            "note": "25 tech nodes with type='diamond'",
+            "evaluation": "Correct if returns all 25 tech nodes"
+          },
+          {
+            "id": "AQ-005",
+            "query": "Find all nodes with purple background",
+            "groundTruth": ["revenue-1", "revenue-2", "...", "revenue-20"],
+            "note": "20 revenue nodes with backgroundColor='#e599f7'",
+            "evaluation": "Correct if returns all 20 revenue nodes"
+          },
+          {
+            "id": "AQ-006",
+            "query": "List nodes containing 'SSO' in their text",
+            "groundTruth": ["customer-16", "feature-16", "revenue-16"],
+            "evaluation": "Correct if finds all three nodes with SSO-related text"
+          },
+          {
+            "id": "AQ-007",
+            "query": "Find all nodes with text containing 'API'",
+            "groundTruth": ["customer-20", "feature-20", "tech-13", "tech-20", "tech-23"],
+            "note": "API documentation, Developer API, Slack API Client, REST Framework, Screen Reader API",
+            "evaluation": "Correct if finds all nodes mentioning API"
+          },
+          {
+            "id": "AQ-008",
+            "query": "Which nodes have strokeWidth of 2?",
+            "groundTruth": "ALL 100 nodes",
+            "evaluation": "Correct if returns all nodes (they all have strokeWidth=2)"
+          },
+          {
+            "id": "AQ-009",
+            "query": "Find nodes with text containing 'mobile' (case insensitive)",
+            "groundTruth": ["customer-2", "customer-6", "feature-2", "revenue-2", "revenue-6"],
+            "note": "Performance issues on mobile, Better mobile UI, Mobile Optimization, Mobile App Sales, Mobile Subscriptions",
+            "evaluation": "Correct if performs case-insensitive search"
+          },
+          {
+            "id": "AQ-010",
+            "query": "List all rectangular nodes with green stroke color",
+            "groundTruth": [],
+            "note": "Rectangle nodes are customers (blue) and revenue (purple); none have green stroke",
+            "evaluation": "Correct if returns empty set"
+          }
+        ]
+      },
+      {
+        "name": "Negative Queries (Hallucination Detection)",
+        "description": "Queries testing for non-existent relationships and entities",
+        "count": 10,
+        "queries": [
+          {
+            "id": "NQ-001",
+            "query": "Does Notification Service depend on Blockchain Module?",
+            "groundTruth": "NO",
+            "note": "No Blockchain Module exists in canvas",
+            "evaluation": "Correct if returns NO or indicates no such relationship exists"
+          },
+          {
+            "id": "NQ-002",
+            "query": "List customers who requested quantum computing features",
+            "groundTruth": [],
+            "note": "No quantum computing features exist",
+            "evaluation": "Correct if returns empty set (no hallucinations)"
+          },
+          {
+            "id": "NQ-003",
+            "query": "Does feature-1 implement tech-1?",
+            "groundTruth": "NO",
+            "note": "Relationship is backwards; tech-1 implements feature-1",
+            "evaluation": "Correct if rejects (only implements edges go tech → feature)"
+          },
+          {
+            "id": "NQ-004",
+            "query": "Which features does revenue-5 request?",
+            "groundTruth": "NO/INVALID",
+            "note": "Revenue streams don't request features; relationship is backwards",
+            "evaluation": "Correct if rejects or returns empty (no feature_request edges from revenue)"
+          },
+          {
+            "id": "NQ-005",
+            "query": "Find the AI/ML features in the system",
+            "groundTruth": [],
+            "note": "No AI or ML features exist in canvas",
+            "evaluation": "Correct if returns empty set"
+          },
+          {
+            "id": "NQ-006",
+            "query": "Does customer-1 directly generate revenue-1?",
+            "groundTruth": "NO",
+            "note": "No direct edge; must go through feature-1",
+            "evaluation": "Correct if indicates no direct relationship"
+          },
+          {
+            "id": "NQ-007",
+            "query": "List all microservices in the architecture",
+            "groundTruth": [],
+            "note": "No nodes explicitly labeled as 'microservices'",
+            "evaluation": "Correct if returns empty or only returns services if interpreting tech nodes as services"
+          },
+          {
+            "id": "NQ-008",
+            "query": "Which customers requested cryptocurrency payment support?",
+            "groundTruth": [],
+            "note": "No cryptocurrency-related nodes exist",
+            "evaluation": "Correct if returns empty set"
+          },
+          {
+            "id": "NQ-009",
+            "query": "Does tech-5 generate revenue-5?",
+            "groundTruth": "NO",
+            "note": "No direct edge; tech implements features which generate revenue",
+            "evaluation": "Correct if indicates no direct relationship"
+          },
+          {
+            "id": "NQ-010",
+            "query": "Find features that block technologies",
+            "groundTruth": [],
+            "note": "Only tech blocks tech; features don't block anything",
+            "evaluation": "Correct if returns empty set (no blocks edges from features)"
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "createdDate": "2025-11-22",
+      "nodeCount": 100,
+      "edgeCount": 150,
+      "nodeTypes": {
+        "customers": 30,
+        "features": 25,
+        "technologies": 25,
+        "revenue": 20
+      },
+      "edgeTypes": {
+        "feature_request": 40,
+        "implements": 25,
+        "generates_revenue": 25,
+        "blocks": 30,
+        "related_to": 30
+      }
+    }
+  }
+}

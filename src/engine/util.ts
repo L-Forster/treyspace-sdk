@@ -38,7 +38,7 @@ export const getProxyBaseFromReq = (req: RequestLike): string => {
     const forwardedProto = req.headers["x-forwarded-proto"] as string | undefined;
     const forwardedHost = req.headers["x-forwarded-host"] as string | undefined;
     const proto = String(forwardedProto || req.protocol || "http");
-    const rawHost = String(req.headers.host || "localhost:8787");
+    const rawHost = String(req.headers.host || "localhost:8788");
     const host = String(forwardedHost || rawHost);
     const isLoopback =
       /^localhost(?::\d+)?$/i.test(rawHost) ||
