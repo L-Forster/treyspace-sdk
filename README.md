@@ -56,7 +56,7 @@ A hosted version of the Treyspace SDK with a full user interface and an Excalidr
 - [Contributing](#-contributing)
 - [License](#-license)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -181,7 +181,7 @@ const result = await executeFullPipeline({
 console.log(result.text);
 ```
 
-## 🌍 Environment Variables
+## Environment Variables
 
 | Variable                                    | Description                             | Default                                       |
 | ------------------------------------------- | --------------------------------------- | --------------------------------------------- |
