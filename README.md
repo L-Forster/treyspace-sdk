@@ -43,7 +43,7 @@ A hosted version of the Treyspace SDK with a full user interface and an Excalidr
 - **SDK & Server** – Use as a library or run as a standalone server
 - **Development-focused** – No auth, rate limiting, or billing; easily adaptable to your needs
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Features](#-features)
 - [Quick Start](#-quick-start)
